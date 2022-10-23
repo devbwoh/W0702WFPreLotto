@@ -13,7 +13,15 @@ namespace W0702WFPreLotto
             int[] num = new int[6];
 
             for (int i = 0; i < num.Length; i++)
-                num[i] = r.Next(1, 46);
+            {
+                int n = 0;
+                do
+                {
+                    n = r.Next(1, 46);
+                } while (Array.IndexOf(num, n) > -1);
+                // } while (num.Contains(n));
+                num[i] = n;
+            }
 
             Array.Sort(num);
 
